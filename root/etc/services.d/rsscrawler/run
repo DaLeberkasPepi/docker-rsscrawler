@@ -1,11 +1,12 @@
 #!/usr/bin/with-contenv bash
 
 # install requirements
-cd config
+. ./config
 pip install -r requirements.txt
+return
 
 if [[ -v LOGLEVEL ]]; then
-  exec s6-setuidgid abc python /RSScrawler.py --docker --log-level=$LOGLEVEL $PARAMETER
+  exec s6-setuidgid abc python /config/RSScrawler.py --docker --log-level=$LOGLEVEL $PARAMETER
 else
-  exec s6-setuidgid abc python /RSScrawler.py --docker $PARAMETER
+  exec s6-setuidgid abc python /config/RSScrawler.py --docker $PARAMETER
 fi
