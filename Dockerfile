@@ -3,9 +3,6 @@ MAINTAINER rix1337
 
 RUN apk add --no-cache gcc libc-dev python-dev
 
-# Install Requirements
-RUN pip install bs4 cfscrape docopt feedparser gevent flask lxml python-dateutil requests
-
 # add local files
 COPY root/ /
 
